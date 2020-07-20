@@ -18,7 +18,7 @@ export const LogItem = ({ log: { _id, priority, user, text, created } }) => {
             <td><Badge variant={setVariant()}>{priority}</Badge></td>
             <td>{text}.</td>
             <td>{user}</td>
-            <td> <Moment format ='DD MMMM YYYY'>{new Date(created)}</Moment></td>
+            <td> <Moment format ='DD MMMM YYYY, h:mm:ss'>{new Date(created)}</Moment></td>
             <td>
                 <Button variant='danger' size='sm'>X</Button>
             </td>
