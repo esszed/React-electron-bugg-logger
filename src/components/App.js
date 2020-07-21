@@ -37,6 +37,10 @@ const App = () => {
 	})
 
 	function addItem(item) {
+		if (item.text === '' || item.user === '' || item.priority === '') {
+			showAlert('Please fill all fields', 'danger')
+			return
+		}
 		item._id = Math.floor(Math.random() * 90000) + 10000
 		item.created = new Date().toString()
 		setlogs([...logs, item])
