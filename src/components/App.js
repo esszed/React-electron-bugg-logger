@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import Container from 'react-bootstrap/Container'
 import Table from 'react-bootstrap/Table'
+import Alert from 'react-bootstrap/Alert'
+
+
 import LogItem from './LogItem'
 import AddLogItem from './AddLogItem'
 
@@ -26,9 +29,16 @@ const App = () => {
 			created: new Date().toString(),
 		},
 	])
+
+	function addItem(item) {
+		console.log(item)
+		item._id = Math.floor(Math.random() * 90000) + 10000
+		item.created = new Date().toString()
+		setlogs([...logs, item])
+	}
 	return (
 		<Container>
-			<AddLogItem />
+			<AddLogItem addItem={addItem} />
 			<Table>
 				<thead>
 					<tr>
@@ -41,7 +51,7 @@ const App = () => {
 				</thead>
 				<tbody>
 					{logs.map((log) => (
-						<LogItem key ={log._id} log={log} />
+						<LogItem key={log._id} log={log} />
 					))}
 				</tbody>
 			</Table>
