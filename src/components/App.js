@@ -47,6 +47,11 @@ const App = () => {
 		showAlert('Log added')
 
 	}
+
+	function deleteItem(_id) {
+		setlogs(logs.filter((item) => item._id !== _id))
+		showAlert('Log removed')
+	}
 	function showAlert(message, variant = 'success', seconds = 3000) {
 		setAlert({
 			show: true,
@@ -77,7 +82,7 @@ const App = () => {
 				</thead>
 				<tbody>
 					{logs.map((log) => (
-						<LogItem key={log._id} log={log} />
+						<LogItem key={log._id} log={log} deleteItem={deleteItem} />
 					))}
 				</tbody>
 			</Table>
