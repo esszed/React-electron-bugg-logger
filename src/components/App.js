@@ -41,8 +41,8 @@ const App = () => {
 	}
 
 	function deleteItem(_id) {
-		setlogs(logs.filter((item) => item._id !== _id))
-		showAlert('Log removed')
+		ipcRenderer.send('logs:delete', _id)
+		showAlert('Log removed','warning')
 	}
 
 	function showAlert(message, variant = 'success', seconds = 3000) {
