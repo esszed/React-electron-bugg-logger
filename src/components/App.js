@@ -23,6 +23,11 @@ const App = () => {
 		ipcRenderer.on('logs:get', (e, logs) => {
 			setlogs(JSON.parse(logs))
 		})
+
+		ipcRenderer.on('logs:clear',()=>{
+			setlogs([])
+			showAlert('Logs cleared')
+		})
 	}, [])
 
 
