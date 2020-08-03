@@ -9,7 +9,7 @@ connectDB()
 
 
 let mainWindow
-let isDev = false
+let isDev = true
 
 const isMac = process.platform === 'darwin' ? true : false
 
@@ -26,7 +26,7 @@ function createMainWindow() {
 		height: 800,
 		show: false,
 		backgroundColor: 'white',
-		icon: './assets/icons/icon.png',
+		icon: './assets/icon.png',
 		webPreferences: {
 			nodeIntegration: true,
 		},
@@ -45,8 +45,8 @@ function createMainWindow() {
 		indexPath = url.format({
 			protocol: 'file:',
 			pathname: path.join(__dirname, 'dist', 'index.html'),
-			slashes: true,
-		})
+			slashes: true,                                                        
+		})      
 	}
 
 	mainWindow.loadURL(indexPath)
